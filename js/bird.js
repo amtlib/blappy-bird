@@ -12,6 +12,7 @@ class Bird{
 
     }
     draw(){
+        fill(0);
         ellipse(this.x, this.y, 32, 32);
     }
     up(){
