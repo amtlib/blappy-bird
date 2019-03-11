@@ -1,7 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let canvas = document.getElementById('canvas')
-    let ctx = canvas.getContext('2d');
-    ctx.moveTo(0,0);
-    ctx.lineTo(200,200);
-    ctx.stroke();
-})
+let bird
+
+function setup(){
+    createCanvas(480, 640);
+    bird = new Bird();
+}
+function draw(){
+    background(255);
+
+    bird.update();
+
+    bird.draw();
+}
+function keyPressed(){
+    bird.up();
+}
