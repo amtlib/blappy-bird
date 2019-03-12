@@ -5,11 +5,10 @@ function setup() {
     createCanvas(480, 640);
     bird = new Bird();
     pipes = [];
-    pipes.push(new Pipe(200));
     pipes.push(new Pipe(400));
     pipes.push(new Pipe(600));
+    pipes.push(new Pipe(800));
 
-    console.log(pipes)
 }
 function draw() {
     background(255);
@@ -26,9 +25,18 @@ function draw() {
 
     bird.draw();
     if(bird.dead()){
-        pipes = [];
-        setup()
+        resetGame();
     }
+    pipes.map(pipe => {
+        if(pipe.hits(bird)){
+            resetGame();
+            console.log('collision!');
+        }
+        
+    })
+}
+function resetGame(){
+    setup();
 }
 function keyPressed() {
     bird.up();

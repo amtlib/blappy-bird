@@ -12,7 +12,7 @@ class Bird{
     }
     draw(){
         fill(0);
-        ellipse(this.x, this.y, this.size, this.size);
+        rect(this.x, this.y, this.size, this.size);
     }
     up(){
         this.velocity += this.lift;

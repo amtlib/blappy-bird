@@ -20,4 +20,10 @@ class Pipe {
     offscreen() {
         return this.x + this.width < 0
     }
+    hits(bird){
+        if(bird.x + bird.size >= this.x && bird.x <= this.x + this.width){
+            if(bird.y < this.top || bird.y + bird.size > this.bottom) return true;
+        }
+        return false;
+    }
 }
