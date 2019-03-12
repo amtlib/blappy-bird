@@ -17,14 +17,18 @@ function draw() {
     bird.update();
     
     pipes.map(pipe => pipe.update());
+    
     let oldLen = pipes.length
     pipes = pipes.filter(pipe => !pipe.offscreen());
     if(oldLen > pipes.length) pipes.push(new Pipe(520));
     
-    bird.draw();
-    if(bird.dead()) location.reload();
     pipes.map(pipe => pipe.draw());
-    console.log(pipes.length)
+
+    bird.draw();
+    if(bird.dead()){
+        pipes = [];
+        setup()
+    }
 }
 function keyPressed() {
     bird.up();
