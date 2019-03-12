@@ -26,4 +26,8 @@ class Pipe {
         }
         return false;
     }
+    point(bird){
+        if(bird.x + bird.size/2 == this.x + this.width/2) return true;
+        return false;
+    }
 }
