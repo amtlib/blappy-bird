@@ -1,13 +1,16 @@
 let bird;
 let pipes;
 let font, fontSize = 32;
-let score = 0;
+let score;
 
 function preload() {
     font = loadFont('../assets/fonts/PressStart2P-Regular.ttf');
 }
 function setup() {
     createCanvas(480, 640);
+
+    score = 0;
+
     bird = new Bird();
     pipes = [];
     pipes.push(new Pipe(400));
